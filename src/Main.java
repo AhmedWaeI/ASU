@@ -5,11 +5,15 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-
-        String Filename = "New Text Document.ARXML";
-        File input = new File("D:\\New Text Document.ARXML");
+        if(args.length==0)
+        {
+            throw new FileNotFoundException();
+        }
+        String Filename = args[0];
+        File input = new File(args [0]);
 
         try {
+
             error(input);
             error2(Filename);
         } catch (EmptyAutosarFileException | NotVaildAutosarFileException ex) {
@@ -63,7 +67,7 @@ public class Main {
         output.close();
     }
 
-    public static void error(File x) throws EmptyAutosarFileException, NotVaildAutosarFileException, FileNotFoundException {
+    public static void error(File x) throws EmptyAutosarFileException {
 
         if (x.length() == 0) {
             throw new EmptyAutosarFileException();
@@ -76,3 +80,19 @@ public class Main {
         }
     }
 }
+class EmptyAutosarFileException extends RuntimeException
+{
+    EmptyAutosarFileException(){
+        super("The file is empty");
+
+
+    }
+}
+class NotVaildAutosarFileException extends IOException {
+    NotVaildAutosarFileException()
+    {
+        super("invalid extension");
+    }
+}
+
+
