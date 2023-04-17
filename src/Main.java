@@ -21,8 +21,9 @@ public class Main {
                 words.add(source.nextLine());
             }
             source.close();
+            String outputname= Filename.replaceAll("\\.","_mod.");
 
-            File src = new File("D:Filename_mod.ARXML");
+            File src = new File(outputname);
             PrintWriter output = new PrintWriter(src);
 
             ArrayList<Integer> index = new ArrayList<Integer>();
