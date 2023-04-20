@@ -48,8 +48,31 @@ public class Main {
                             continue;
                         } else if (c1 > c2) {
                             Collections.swap(words, index.get(i), index.get(j));
+                            int start1=index.get(i);
+                            int end1=index.get(i);
+                            int start2=index.get(j);
+                            int end2=index.get(j);
+                            while(!words.get(start1).contains("CONTAINER"))
+                            {
+                                start1 --;
+                                start2--;
+
+                                Collections.swap(words, start1, start2);
+
+                            }
+                            while(!words.get(end1).contains("CONTAINER"))
+                            {
+                                end1 ++;
+                                end2 ++;
+
+                                Collections.swap(words, end1, end2);
+
+                            }
+
+
                             break;
-                        } else {
+                        }
+                        else {
                             break;
                         }
                     }
@@ -110,5 +133,4 @@ class NotVaildAutosarFileException extends IOException {
         super("invalid extension");
     }
 }
-
 
