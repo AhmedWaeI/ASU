@@ -114,7 +114,7 @@ public class Main {
     }
 
     public static void error2(String x) throws NotVaildAutosarFileException {
-        if (!x.endsWith("ARXML")) {
+        if (!x.endsWith("arxml")) {
             throw new NotVaildAutosarFileException();
         }
     }
